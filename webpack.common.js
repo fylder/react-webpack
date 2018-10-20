@@ -1,6 +1,5 @@
 const webpack = require('webpack'); //to access built-in plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -9,11 +8,10 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[hash].app.js'
+        filename: '[name].[hash:8].js'
     },
     devtool: 'inline-source-map',
     plugins: [
-        new CleanWebpackPlugin(['dist']),
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
@@ -23,8 +21,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -32,12 +29,28 @@ module.exports = {
                 }
             },
             {
-                test: /\.html$/,
+                test: /\.less$/,
                 use: [
+                    'style-loader',
                     {
-                        loader: "html-loader"
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            noIeCompat: true
+                        }
                     }
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: [{
+                    loader: "html-loader"
+                }]
             }
         ]
     }
