@@ -11,12 +11,12 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = {
     card: {
-        maxWidth: 345,
+        maxWidth: 345
     },
     media: {
         // ⚠️ object-fit is not supported by IE11.
-        objectFit: 'cover',
-    },
+        objectFit: 'cover'
+    }
 }
 
 function ImgCard(props) {
@@ -36,9 +36,7 @@ function ImgCard(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                         fylder
                     </Typography>
-                    <Typography component="p">
-                        ahh
-                    </Typography>
+                    <Typography component="p">ahh</Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
@@ -54,7 +52,7 @@ function ImgCard(props) {
 }
 
 ImgCard.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(ImgCard)

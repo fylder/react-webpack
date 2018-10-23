@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import ButtonAppBar from '../components/Header'
@@ -6,20 +6,16 @@ import Home from '../pagers/home'
 
 const styles = theme => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 1
     },
     paper: {
         padding: theme.spacing.unit * 2,
         textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
+        color: theme.palette.text.secondary
+    }
 })
 
 class Layout extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div>
