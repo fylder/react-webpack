@@ -1,6 +1,5 @@
 module.exports = {
     parser: "babel-eslint",
-    // extends: ["airbnb"],
     extends: [
         "airbnb", "prettier", "prettier/react"
     ],
@@ -18,11 +17,12 @@ module.exports = {
     settings: {
         'import/resolver': {
             webpack: {
-                config: "webpack.prod.js"
+                config: "scripts/webpack.prod.js"
             }
         }
     },
     rules: {
+        'semi': 'off',
         "generator-star-spacing": [0],
         "react/prefer-stateless-function": "off",
         "react/forbid-prop-types": ['error', {
