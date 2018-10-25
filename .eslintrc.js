@@ -1,19 +1,22 @@
 module.exports = {
     parser: "babel-eslint",
-    extends: [
-        "airbnb", "prettier", "prettier/react"
-    ],
-    globals: {
-        google: true,
-    },
+    extends: ["airbnb", "prettier", "prettier/react"],
     env: {
         browser: true,
         node: true,
-        es6: true
+        es6: true,
+        commonjs: true
     },
     plugins: [
         "react", 'prettier'
     ],
+    parserOptions: {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     settings: {
         'import/resolver': {
             webpack: {

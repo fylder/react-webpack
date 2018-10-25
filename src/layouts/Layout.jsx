@@ -1,35 +1,53 @@
 import React from 'react'
+// import { Redirect } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import pink from '@material-ui/core/colors/pink'
+import blue from '@material-ui/core/colors/blue'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import ButtonAppBar from '../components/Header'
-import Home from '../pagers/home'
+import Home from '../pagers/Home'
+import About from '../pagers/About'
+import './layout.less'
+import Menu from './Menu'
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1
-    },
-    paper: {
-        padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary
+const theme = createMuiTheme({
+    palette: {
+        primary: pink,
+        secondary: {
+            main: blue.A400
+        }
     }
 })
 
 class Layout extends React.Component {
     render() {
         return (
-            <div>
+            <MuiThemeProvider theme={theme}>
                 <ButtonAppBar />
-                <Grid container spacing={24}>
-                    <Grid item xs />
-                    <Grid item xs={8}>
-                        <Paper className={styles.paper}>
-                            <Home />
-                        </Paper>
+                <Paper className="layout-container" square={false}>
+                    <Grid container spacing={16}>
+                        <Grid item xs={4} sm={3}>
+                            <Menu />
+                        </Grid>
+                        <Grid item xs={12} sm={9}>
+                            {/* <Redirect to="/home" /> */}
+                            {renderRoutes([
+                                {
+                                    component: () => <Home />,
+                                    exact: true,
+                                    path: '/home'
+                                },
+                                {
+                                    component: () => <About />,
+                                    path: '/about'
+                                }
+                            ])}
+                        </Grid>
                     </Grid>
-                    <Grid item xs />
-                </Grid>
-            </div>
+                </Paper>
+            </MuiThemeProvider>
         )
     }
 }

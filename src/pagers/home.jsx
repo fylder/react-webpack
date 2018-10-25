@@ -1,34 +1,17 @@
 import React from 'react'
-import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import ImgCard from '../components/ImgCard'
-import Ahh from '../components/Ahh'
-
-const styles = theme => ({
-    root: {
-        flexGrow: 1
-    },
-    paper: {
-        // padding: theme.spacing.unit * 2,
-        textAlign: 'center',
-        color: theme.palette.text.secondary
-    }
-})
 
 class Home extends React.Component {
     render() {
         return (
             <div>
-                <Grid container spacing={24}>
-                    <Grid item xs={6} sm={3} />
-                    <Grid item xs={6} sm={3}>
+                <Grid container spacing={16}>
+                    <Grid item xs={2} sm={2} />
+                    <Grid item xs={12} sm={6}>
                         <ImgCard />
-                    </Grid>{' '}
-                    <Grid item xs={6} sm={3}>
-                        <Paper className={styles.paper}>
-                            <Ahh />
-                        </Paper>
                     </Grid>
+                    <Grid item xs={2} sm={2} />
                 </Grid>
             </div>
         )
