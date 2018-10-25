@@ -84,11 +84,11 @@ let EnhancedTableToolbar = props => {
         >
             <div className={classes.title}>
                 {numSelected > 0 ? (
-                    <Typography color="inherit" variant="subtitle1">
+                    <Typography color='inherit' variant='subtitle1'>
                         {numSelected} selected
                     </Typography>
                 ) : (
-                    <Typography variant="h6" id="tableTitle">
+                    <Typography variant='h6' id='tableTitle'>
                         Nutrition
                     </Typography>
                 )}
@@ -96,14 +96,14 @@ let EnhancedTableToolbar = props => {
             <div className={classes.spacer} />
             <div className={classes.actions}>
                 {numSelected > 0 ? (
-                    <Tooltip title="Delete">
-                        <IconButton aria-label="Delete">
+                    <Tooltip title='Delete'>
+                        <IconButton aria-label='Delete'>
                             <DeleteIcon />
                         </IconButton>
                     </Tooltip>
                 ) : (
-                    <Tooltip title="Filter list">
-                        <IconButton aria-label="Filter list">
+                    <Tooltip title='Filter list'>
+                        <IconButton aria-label='Filter list'>
                             <FilterListIcon />
                         </IconButton>
                     </Tooltip>
@@ -213,7 +213,7 @@ class EnhancedTable extends React.Component {
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
-                    <Table className={classes.table} aria-labelledby="tableTitle">
+                    <Table className={classes.table} aria-labelledby='tableTitle'>
                         <EnhancedTableHead
                             numSelected={selected.length}
                             order={order}
@@ -231,16 +231,16 @@ class EnhancedTable extends React.Component {
                                         <TableRow
                                             hover
                                             onClick={event => this.handleClick(event, n.id)}
-                                            role="checkbox"
+                                            role='checkbox'
                                             aria-checked={isSelected}
                                             tabIndex={-1}
                                             key={n.id}
                                             selected={isSelected}
                                         >
-                                            <TableCell padding="checkbox">
+                                            <TableCell padding='checkbox'>
                                                 <Checkbox checked={isSelected} />
                                             </TableCell>
-                                            <TableCell component="th" scope="row" padding="none">
+                                            <TableCell component='th' scope='row' padding='none'>
                                                 {n.name}
                                             </TableCell>
                                             <TableCell numeric>{n.calories}</TableCell>
@@ -259,7 +259,7 @@ class EnhancedTable extends React.Component {
                     </Table>
                 </div>
                 <TablePagination
-                    component="div"
+                    component='div'
                     count={data.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
