@@ -25,25 +25,25 @@ function ImgCard(props) {
         <Card className={classes.card}>
             <CardActionArea>
                 <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
+                    component='img'
+                    alt='Contemplative Reptile'
                     className={classes.media}
-                    height="140"
-                    image="https://photo.tuchong.com/4430064/l/217842320.webp"
-                    title="Contemplative Reptile"
+                    height='140'
+                    image='https://photo.tuchong.com/4430064/l/217842320.webp'
+                    title='Contemplative Reptile'
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant='h5' component='h2'>
                         fylder
                     </Typography>
-                    <Typography component="p">ahh</Typography>
+                    <Typography component='p'>ahhh</Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size='small' color='primary'>
                     Share
                 </Button>
-                <Button size="small" color="primary">
+                <Button size='small' color='primary'>
                     Learn More
                 </Button>
             </CardActions>

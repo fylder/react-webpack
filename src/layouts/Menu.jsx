@@ -43,13 +43,13 @@ class Menu extends React.Component {
                         <ListItemIcon className={styles.icon}>
                             <Bookmarks />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary="Home" />
+                        <ListItemText classes={{ primary: styles.primary }} inset primary='Home' />
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 2)}>
                         <ListItemIcon className={styles.icon}>
                             <LinkedCamera />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary="About" />
+                        <ListItemText classes={{ primary: styles.primary }} inset primary='About' />
                     </MenuItem>
                 </MenuList>
             </Paper>

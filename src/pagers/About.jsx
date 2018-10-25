@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import EnhancedTable from '../components/Table'
+import EnhancedTable from '../components/EnhancedTable'
 
 const styles = theme => ({
     title: {
@@ -18,7 +18,7 @@ class About extends React.Component {
             <div>
                 <Grid container spacing={16}>
                     <Grid item xs={2} sm={2}>
-                        <Typography className={styles.title} variant="h6" color="inherit" noWrap>
+                        <Typography className={styles.title} variant='h6' color='inherit' noWrap>
                             about
                         </Typography>
                     </Grid>

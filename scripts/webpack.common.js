@@ -7,10 +7,9 @@ module.exports = {
         app: './src/index.jsx'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].[hash:8].js'
     },
-    devtool: 'inline-source-map',
     plugins: [
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({

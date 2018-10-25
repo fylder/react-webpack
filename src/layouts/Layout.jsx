@@ -26,7 +26,7 @@ class Layout extends React.Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <ButtonAppBar />
-                <Paper className="layout-container" square={false}>
+                <Paper className='layout-container' square={false}>
                     <Grid container spacing={16}>
                         <Grid item xs={4} sm={3}>
                             <Menu />
