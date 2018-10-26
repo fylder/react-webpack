@@ -37,12 +37,7 @@ module.exports = {
         }],
         "react/no-array-index-key": "off",
         "react/jsx-no-bind": "off",
-        "react/prop-types": ["error",
-            {
-                "ignore": ["history"],
-                "customValidators": ["history"]
-            }
-        ],
+        "react/prop-types": "off",
         "react/destructuring-assignment": "off",
         "jsx-a11y/anchor-is-valid": ["error", {
             "components": ["Link"],
