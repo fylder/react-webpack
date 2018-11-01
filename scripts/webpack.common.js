@@ -1,5 +1,7 @@
 const webpack = require('webpack'); //to access built-in plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const chalk = require('chalk');
 const path = require('path');
 
 module.exports = {
@@ -11,7 +13,11 @@ module.exports = {
         filename: '[name].[hash:8].js'
     },
     plugins: [
-        new webpack.ProgressPlugin(),
+        new ProgressBarPlugin({
+            format: '   build [:bar]' +
+                chalk.green.bold(':percent') +
+                '   (:elapsed seconds)'
+        }),
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
