@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --color --config ./scripts/webpack.dev.js",
     "build": "webpack --config ./scripts/webpack.prod.js",
-    "lint": "eslint **/*.jsx --ignore-pattern node_modules/"
+    "lint": "eslint **/*.jsx --ignore-pattern node_modules/",
+    "stylelint-check": "stylelint-config-prettier-check"
   },
   "author": "fylder",
   "license": "ISC",
@@ -52,6 +53,11 @@
     "prettier": "^1.14.3",
     "progress-bar-webpack-plugin": "^1.11.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.7.1",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-recess-order": "^2.0.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-prettier": "^1.0.3",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.3",
