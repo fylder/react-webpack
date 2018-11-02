@@ -30,14 +30,16 @@ class Menu extends React.Component {
     handleShow = page => {
         if (page === 1) {
             this.props.history.push('/home')
-        } else {
+        } else if (page === 2) {
             this.props.history.push('/about')
+        } else {
+            this.props.history.push('/login')
         }
     }
 
     render() {
         return (
-            <Paper>
+            <Paper square>
                 <MenuList>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 1)}>
                         <ListItemIcon className={styles.icon}>
@@ -50,6 +52,12 @@ class Menu extends React.Component {
                             <LinkedCamera />
                         </ListItemIcon>
                         <ListItemText classes={{ primary: styles.primary }} inset primary='About' />
+                    </MenuItem>
+                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 3)}>
+                        <ListItemIcon className={styles.icon}>
+                            <LinkedCamera />
+                        </ListItemIcon>
+                        <ListItemText classes={{ primary: styles.primary }} inset primary='Login' />
                     </MenuItem>
                 </MenuList>
             </Paper>

@@ -11,6 +11,7 @@ import Home from '../pagers/Home'
 import About from '../pagers/About'
 import './layout.less'
 import Menu from './Menu'
+import Login from '../pagers/Login'
 
 const theme = createMuiTheme({
     palette: {
@@ -18,6 +19,9 @@ const theme = createMuiTheme({
         secondary: {
             main: blue.A400
         }
+    },
+    typography: {
+        useNextVariants: true
     }
 })
 
@@ -27,27 +31,44 @@ class Layout extends React.Component {
             <MuiThemeProvider theme={theme}>
                 <div className='layout-box'>
                     <HeaderAppBar className='layout-header' />
-                    <Paper className='layout-container' square={false}>
-                        <Grid container spacing={16}>
-                            <Grid item xs={4} sm={3}>
-                                <Menu />
-                            </Grid>
-                            <Grid item xs={12} sm={9}>
-                                {/* <Redirect to="/home" /> */}
-                                {renderRoutes([
-                                    {
-                                        component: () => <Home />,
-                                        exact: true,
-                                        path: '/home'
-                                    },
-                                    {
-                                        component: () => <About />,
-                                        path: '/about'
-                                    }
-                                ])}
+                    <div className='layout-container'>
+                        <Grid item xs={12} container justify='center'>
+                            <Grid
+                                className='layout-grid'
+                                container
+                                item
+                                xs={12}
+                                sm={10}
+                                md={9}
+                                justify='center'
+                                alignItems='stretch'
+                            >
+                                <Grid item xs={12} sm={1} md={2}>
+                                    <Menu />
+                                </Grid>
+                                <Grid item xs={12} sm={8} md={10}>
+                                    <Paper className='layout-pager' square>
+                                        {/* <Redirect to="/home" /> */}
+                                        {renderRoutes([
+                                            {
+                                                component: () => <Home />,
+                                                exact: true,
+                                                path: '/home'
+                                            },
+                                            {
+                                                component: () => <About />,
+                                                path: '/about'
+                                            },
+                                            {
+                                                component: () => <Login />,
+                                                path: '/login'
+                                            }
+                                        ])}
+                                    </Paper>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Paper>
+                    </div>
                 </div>
             </MuiThemeProvider>
         )

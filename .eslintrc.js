@@ -39,6 +39,7 @@ module.exports = {
         "react/jsx-no-bind": "off",
         "react/prop-types": "off",
         "react/destructuring-assignment": "off",
+        "react/no-unused-state":"warn",
         "jsx-a11y/anchor-is-valid": ["error", {
             "components": ["Link"],
             "specialLink": ["to", "hrefLeft", "hrefRight"],

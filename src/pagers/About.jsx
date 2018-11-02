@@ -15,18 +15,16 @@ const styles = theme => ({
 class About extends React.Component {
     render() {
         return (
-            <div>
-                <Grid container spacing={16}>
-                    <Grid item xs={2} sm={2}>
-                        <Typography className={styles.title} variant='h6' color='inherit' noWrap>
-                            about
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} sm={12}>
-                        <EnhancedTable />
-                    </Grid>
+            <Grid container>
+                <Grid item xs={12} sm={2}>
+                    <Typography className={styles.title} variant='h6' color='inherit' noWrap>
+                        about
+                    </Typography>
                 </Grid>
-            </div>
+                <Grid item xs={12} sm={12}>
+                    <EnhancedTable />
+                </Grid>
+            </Grid>
         )
     }
 }

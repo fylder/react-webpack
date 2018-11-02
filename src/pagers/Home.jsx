@@ -29,25 +29,22 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                <Grid container spacing={16}>
-                    <Grid item xs={2} sm={2}>
-                        <Button variant='contained' color='primary' onClick={this.handlerSend.bind(this)}>
-                            {this.state.msg}
-                        </Button>
-                        <Button variant='contained' color='primary' onClick={this.handlerUpdate.bind(this)}>
-                            update
-                        </Button>
-                        <Button variant='contained' color='primary' onClick={this.handlerDelete.bind(this)}>
-                            del
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <ImgCard />
-                    </Grid>
-                    <Grid item xs={2} sm={2} />
+            <Grid container>
+                <Grid item xs={12} sm={3}>
+                    <Button variant='contained' color='primary' onClick={this.handlerSend.bind(this)}>
+                        {this.state.msg}
+                    </Button>
+                    <Button variant='contained' color='primary' onClick={this.handlerUpdate.bind(this)}>
+                        update
+                    </Button>
+                    <Button variant='contained' color='primary' onClick={this.handlerDelete.bind(this)}>
+                        del
+                    </Button>
                 </Grid>
-            </div>
+                <Grid item xs={12} sm={6}>
+                    <ImgCard />
+                </Grid>
+            </Grid>
         )
     }
 }
