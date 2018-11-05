@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -7,6 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { LOGIN, LOGOUT } from '../redux/actions'
+import UserButton from './UserButton'
 
 const styles = {
     root: {
@@ -20,26 +24,61 @@ const styles = {
         marginRight: 20
     }
 }
+class HeaderAppBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: this.props.username
+        }
+    }
 
-function HeaderAppBar(props) {
-    const { classes } = props
-    return (
-        <AppBar position='static'>
-            <Toolbar>
-                <IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant='h6' color='inherit' className={classes.grow}>
-                    Fylder
-                </Typography>
-                <Button color='inherit'>Login</Button>
-            </Toolbar>
-        </AppBar>
-    )
+    // 登录
+    handlerLogin = () => {
+        this.props.history.push('/login')
+    }
+
+    render() {
+        const { classes } = this.props
+
+        let btn
+        this.state = {
+            username: this.props.username
+        }
+        if (this.state.username) {
+            btn = <UserButton username={this.props.username} />
+        } else {
+            btn = (
+                <Button color='inherit' onClick={this.handlerLogin.bind(this)}>
+                    Login
+                </Button>
+            )
+        }
+
+        return (
+            <AppBar position='static'>
+                <Toolbar>
+                    <IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant='h6' color='inherit' className={classes.grow}>
+                        Fylder
+                    </Typography>
+                    {btn}
+                    {/* <Button color='inherit'>Login</Button> */}
+                </Toolbar>
+            </AppBar>
+        )
+    }
 }
 
 HeaderAppBar.propTypes = {
     classes: PropTypes.object.isRequired
 }
+const mapStateToProps = (state /** ownProps */) => {
+    if (state.user.type === LOGIN || state.user.type === LOGOUT) {
+        return { username: state.user.username }
+    }
+    return state
+}
 
-export default withStyles(styles)(HeaderAppBar)
+export default withStyles(styles)(withRouter(connect(mapStateToProps)(HeaderAppBar)))

@@ -1,17 +1,17 @@
 import React from 'react'
-// import { Redirect } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import pink from '@material-ui/core/colors/pink'
 import blue from '@material-ui/core/colors/blue'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import requireAuth from '../user/EnsureLogin'
 import HeaderAppBar from '../components/Header'
 import Home from '../pagers/Home'
 import About from '../pagers/About'
-import './layout.less'
 import Menu from './Menu'
 import Login from '../pagers/Login'
+import './layout.less'
 
 const theme = createMuiTheme({
     palette: {
@@ -56,7 +56,7 @@ class Layout extends React.Component {
                                                 path: '/home'
                                             },
                                             {
-                                                component: () => <About />,
+                                                component: props => requireAuth(About, props),
                                                 path: '/about'
                                             },
                                             {

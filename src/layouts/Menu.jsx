@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import MenuList from '@material-ui/core/MenuList'
 import MenuItem from '@material-ui/core/MenuItem'
 import Paper from '@material-ui/core/Paper'
@@ -6,7 +7,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LinkedCamera from '@material-ui/icons/LinkedCamera'
 import Bookmarks from '@material-ui/icons/Bookmarks'
-import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({
     menuItem: {
@@ -52,12 +52,6 @@ class Menu extends React.Component {
                             <LinkedCamera />
                         </ListItemIcon>
                         <ListItemText classes={{ primary: styles.primary }} inset primary='About' />
-                    </MenuItem>
-                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 3)}>
-                        <ListItemIcon className={styles.icon}>
-                            <LinkedCamera />
-                        </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary='Login' />
                     </MenuItem>
                 </MenuList>
             </Paper>
