@@ -1,9 +1,9 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
 import LoginForm from '../components/LoginForm'
-import { LOGIN } from '../redux/actions'
+import * as TYPE from '../redux/types'
 
 class Login extends React.Component {
     render() {
@@ -18,7 +18,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    if (state.user.type === LOGIN) {
+    if (state.user.type === TYPE.USER_LOGIN) {
         ownProps.history.push('/home')
     }
     return state

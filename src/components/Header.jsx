@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { LOGIN, LOGOUT } from '../redux/actions'
+import * as TYPE from '../redux/types'
 import UserButton from './UserButton'
 
 const styles = {
@@ -75,7 +75,7 @@ HeaderAppBar.propTypes = {
     classes: PropTypes.object.isRequired
 }
 const mapStateToProps = (state /** ownProps */) => {
-    if (state.user.type === LOGIN || state.user.type === LOGOUT) {
+    if (state.user.type === TYPE.USER_LOGIN || state.user.type === TYPE.USER_LOGOUT) {
         return { username: state.user.username }
     }
     return state

@@ -1,55 +1,18 @@
 import { combineReducers } from 'redux'
-import { LOGIN, LOGOUT, ADD_TODO, UPDATE_TODO, DELETE_TODO } from './actions'
+import * as TYPE from './types'
 
 const user = (state = { username: '' }, action) => {
     switch (action.type) {
-        case LOGIN:
+        case TYPE.USER_LOGIN:
             return action
-        case LOGOUT:
+        case TYPE.USER_LOGOUT:
             return action
-        default:
-            return state
-    }
-}
-
-const todos = (state = [], action) => {
-    switch (action.type) {
-        case ADD_TODO:
-            return [
-                ...state,
-                {
-                    action
-                }
-            ]
-        case UPDATE_TODO:
-            return [
-                ...state,
-                {
-                    action
-                }
-            ]
-
-        default:
-            return state
-    }
-}
-
-const delTodo = (state = [], action) => {
-    switch (action.type) {
-        case DELETE_TODO:
-            return [
-                {
-                    action
-                }
-            ]
         default:
             return state
     }
 }
 
 const todoApp = combineReducers({
-    user,
-    todos,
-    delTodo
+    user
 })
 export default todoApp
