@@ -12,7 +12,7 @@ class Home extends React.Component {
         return (
             <Grid container justify='center'>
                 <Grid item xs={12} sm={6}>
-                    <ImgCard />
+                    <ImgCard maxWidth={345} />
                 </Grid>
             </Grid>
         )

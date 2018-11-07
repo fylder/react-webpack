@@ -12,6 +12,8 @@ import About from '../pagers/About'
 import Menu from './Menu'
 import Login from '../pagers/Login'
 import './layout.less'
+import Photo from '../pagers/Photo'
+import Album from '../pagers/Album'
 
 const theme = createMuiTheme({
     palette: {
@@ -54,6 +56,14 @@ class Layout extends React.Component {
                                                 component: () => <Home />,
                                                 exact: true,
                                                 path: '/home'
+                                            },
+                                            {
+                                                component: props => requireAuth(Album, props),
+                                                path: '/album'
+                                            },
+                                            {
+                                                component: props => requireAuth(Photo, props),
+                                                path: '/photo'
                                             },
                                             {
                                                 component: props => requireAuth(About, props),
