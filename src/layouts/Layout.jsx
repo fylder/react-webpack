@@ -14,6 +14,7 @@ import Login from '../pagers/Login'
 import './layout.less'
 import Photo from '../pagers/Photo'
 import Album from '../pagers/Album'
+import Upload from '../pagers/Upload'
 
 const theme = createMuiTheme({
     palette: {
@@ -64,6 +65,10 @@ class Layout extends React.Component {
                                             {
                                                 component: props => requireAuth(Photo, props),
                                                 path: '/photo'
+                                            },
+                                            {
+                                                component: props => requireAuth(Upload, props),
+                                                path: '/upload'
                                             },
                                             {
                                                 component: props => requireAuth(About, props),

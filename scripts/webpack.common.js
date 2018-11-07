@@ -27,41 +27,38 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            noIeCompat: true
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.html$/,
-                use: [{
-                    loader: "html-loader"
-                }]
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+                loader: "babel-loader"
             }
-        ]
+        }, {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/
+        }, {
+            test: /\.(css|less)$/,
+            use: [
+                'style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1
+                    }
+                },
+                {
+                    loader: 'less-loader',
+                    options: {
+                        noIeCompat: true,
+                        javascriptEnabled: true
+                    }
+                }
+            ]
+        }, {
+            test: /\.html$/,
+            use: [{
+                loader: "html-loader"
+            }]
+        }]
     }
 };

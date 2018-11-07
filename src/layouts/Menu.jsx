@@ -6,6 +6,9 @@ import Paper from '@material-ui/core/Paper'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LinkedCamera from '@material-ui/icons/LinkedCamera'
+import Collections from '@material-ui/icons/Collections'
+import Photo from '@material-ui/icons/Photo'
+import AddPhotoAlternate from '@material-ui/icons/AddPhotoAlternate'
 import Bookmarks from '@material-ui/icons/Bookmarks'
 
 const styles = theme => ({
@@ -35,6 +38,8 @@ class Menu extends React.Component {
         } else if (page === 3) {
             this.props.history.push('/photo')
         } else if (page === 4) {
+            this.props.history.push('/upload')
+        } else if (page === 5) {
             this.props.history.push('/about')
         } else {
             this.props.history.push('/login')
@@ -53,17 +58,23 @@ class Menu extends React.Component {
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 2)}>
                         <ListItemIcon className={styles.icon}>
-                            <LinkedCamera />
+                            <Collections />
                         </ListItemIcon>
                         <ListItemText classes={{ primary: styles.primary }} inset primary='Album' />
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 3)}>
                         <ListItemIcon className={styles.icon}>
-                            <LinkedCamera />
+                            <Photo />
                         </ListItemIcon>
                         <ListItemText classes={{ primary: styles.primary }} inset primary='Photo' />
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 4)}>
+                        <ListItemIcon className={styles.icon}>
+                            <AddPhotoAlternate />
+                        </ListItemIcon>
+                        <ListItemText classes={{ primary: styles.primary }} inset primary='Upload' />
+                    </MenuItem>
+                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 5)}>
                         <ListItemIcon className={styles.icon}>
                             <LinkedCamera />
                         </ListItemIcon>

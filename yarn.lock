@@ -3103,6 +3103,41 @@ filename-regex@^2.0.0:
   resolved "http://registry.npm.taobao.org/filename-regex/download/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
   integrity sha1-wcS5vuPglyXdsQa3XB4wH+LxiyY=
 
+filepond-plugin-file-validate-size@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.taobao.org/filepond-plugin-file-validate-size/download/filepond-plugin-file-validate-size-2.0.0.tgz#bf515e425441da85ac71c8e3f004137718504e34"
+  integrity sha1-v1FeQlRB2oWsccjj8AQTdxhQTjQ=
+
+filepond-plugin-file-validate-type@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/filepond-plugin-file-validate-type/download/filepond-plugin-file-validate-type-1.2.0.tgz#5ab8d25cb21c8d632a10b4c1a008fb5c0b1ff73a"
+  integrity sha1-WrjSXLIcjWMqELTBoAj7XAsf9zo=
+
+filepond-plugin-image-exif-orientation@^1.0.3:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/filepond-plugin-image-exif-orientation/download/filepond-plugin-image-exif-orientation-1.0.3.tgz#b2914b5fd8ec1bc5fc2eb1b0c969275fdbcf9198"
+  integrity sha1-spFLX9jsG8X8LrGwyWknX9vPkZg=
+
+filepond-plugin-image-preview@^3.1.3:
+  version "3.1.3"
+  resolved "http://registry.npm.taobao.org/filepond-plugin-image-preview/download/filepond-plugin-image-preview-3.1.3.tgz#88331efff29491ad39c4cca1c9d51a616c5dfc47"
+  integrity sha1-iDMe//KUka05xMyhydUaYWxd/Ec=
+
+filepond-plugin-image-resize@^2.0.1:
+  version "2.0.1"
+  resolved "http://registry.npm.taobao.org/filepond-plugin-image-resize/download/filepond-plugin-image-resize-2.0.1.tgz#c03c4ace90a388fcc14717ab422e2b1c9d1e50c5"
+  integrity sha1-wDxKzpCjiPzBRxerQi4rHJ0eUMU=
+
+filepond-plugin-image-transform@^3.0.3:
+  version "3.0.3"
+  resolved "http://registry.npm.taobao.org/filepond-plugin-image-transform/download/filepond-plugin-image-transform-3.0.3.tgz#8ac9781f08ee1907bb6431b661d5315f0bbffe86"
+  integrity sha1-isl4HwjuGQe7ZDG2YdUxXwu//oY=
+
+filepond@^3.3.0:
+  version "3.3.0"
+  resolved "http://registry.npm.taobao.org/filepond/download/filepond-3.3.0.tgz#bf689138d9e6ea997c3ad0183361e8e981621a2c"
+  integrity sha1-v2iRONnm6pl8OtAYM2Ho6YFiGiw=
+
 fill-range@^2.1.0:
   version "2.2.4"
   resolved "http://registry.npm.taobao.org/fill-range/download/fill-range-2.2.4.tgz#eb1e773abb056dcd8df2bfdf6af59b8b3a936565"
@@ -6037,6 +6072,11 @@ react-event-listener@^0.6.2:
     "@babel/runtime" "7.0.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
+
+react-filepond@^5.0.0:
+  version "5.0.0"
+  resolved "http://registry.npm.taobao.org/react-filepond/download/react-filepond-5.0.0.tgz#28c30a878ce27b9b4899f877f4c3ead8dc9a026e"
+  integrity sha1-KMMKh4zie5tImfh39MPq2NyaAm4=
 
 react-images@^0.5.19:
   version "0.5.19"
