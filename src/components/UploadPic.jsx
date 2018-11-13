@@ -45,7 +45,7 @@ class UploadPic extends React.Component {
                     // imageResizeTargetWidth={1000}
                     // imageResizeTargetHeight={1000}
                     acceptedFileTypes={['image/jpeg']}
-                    server='/api'
+                    server='http://127.0.0.1:7001/api/upload'
                     oninit={() => this.handleInit()}
                     onupdatefiles={fileItems => {
                         // Set current file objects to this.state

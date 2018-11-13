@@ -3,68 +3,71 @@ import { withRouter } from 'react-router-dom'
 import Card from '@material-ui/core/Card'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import Snackbar from '@material-ui/core/Snackbar'
 import Typography from '@material-ui/core/Typography'
-import { login } from '../redux/actions'
+import { fetch as fetchPolyfill } from 'whatwg-fetch'
+import { stringify } from 'qs'
 import store from '../redux/store'
+import { login } from '../redux/actions'
 import './loginForm.less'
 
 class LoginForm extends React.Component {
     constructor(props, context) {
         super(props, context)
-        // this.handleTouchTapLogin = this.handleTouchTapLogin.bind(this)
         this.handleUsernameChange = this.handleUsernameChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
-        this.handleRequestClose = this.handleRequestClose.bind(this)
 
         this.state = {
             open: false,
             msg: '',
             username: 'fylder',
-            password: ''
+            password: '123'
         }
     }
 
-    // handleTouchTapLogin = () => {
-    //     const data = {
-    //         username: this.state.username,
-    //         password: this.state.password
-    //     }
-
-    //     fetch('user/login_account', {
-    //         method: 'POST',
-    //         credentials: 'include',
-    //         headers: {
-    //             Accept: 'application/json',
-    //             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    //         },
-    //         body: `username=${data.username}&password=${data.password}`
-    //     })
-    //         .then(response => response.json())
-    //         .then(json => {
-    //             console.log('parsed json', json)
-    //             if (json.result === 1) {
-    //                 this.setState({
-    //                     open: true,
-    //                     msg: '登录成功'
-    //                 })
-    //                 setTimeout(() => {
-    //                     window.location.href = '/photo/home'
-    //                 }, 700)
-    //             } else {
-    //                 this.setState({
-    //                     open: true,
-    //                     msg: '登录失败'
-    //                 })
-    //             }
-    //         })
-    //         .catch(ex => {
-    //             console.log('ex:', ex)
-    //             this.setState({
-    //                 open: true,
-    //                 msg: `请求异常:${ex}`
-    //             })
-    //         })
-    // }
+    handleTouchTapLogin = async () => {
+        const data = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        const body = {
+            username: data.username,
+            password: data.password,
+            grant_type: 'password'
+        }
+        fetchPolyfill('http://127.0.0.1:7001/user/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                Authorization: 'Basic bXlfYXBwOm15X3NlY3JldA=='
+            },
+            // body: `username=${data.username}&password=${data.password}&grant_type=password`
+            body: stringify(body)
+        })
+            .then(response => response.json())
+            .then(json => {
+                const accessToken = json.access_token
+                if (accessToken) {
+                    window.localStorage.accessToken = accessToken
+                    this.setState({
+                        open: true,
+                        msg: `save token:${accessToken}`
+                    })
+                    store.dispatch(login(data.username))
+                } else {
+                    this.setState({
+                        open: true,
+                        msg: json.error_description
+                    })
+                }
+            })
+            .catch(ex => {
+                this.setState({
+                    open: true,
+                    msg: `请求异常:${ex}`
+                })
+            })
+    }
 
     handleUsernameChange = e => {
         this.setState({
@@ -78,7 +81,7 @@ class LoginForm extends React.Component {
         })
     }
 
-    handleRequestClose = () => {
+    handleTipClose = () => {
         this.setState({
             open: false
         })
@@ -123,11 +126,24 @@ class LoginForm extends React.Component {
                     size='medium'
                     fullWidth
                     color='primary'
-                    onClick={this.handleClickBtn.bind(this)}
+                    onClick={this.handleTouchTapLogin.bind(this)}
                     // icon={<FontIcon className='muidocs-icon-custom-github' />}
                 >
                     LOGIN
                 </Button>
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center'
+                    }}
+                    open={this.state.open}
+                    autoHideDuration={3000}
+                    onClose={this.handleTipClose}
+                    ContentProps={{
+                        'aria-describedby': 'message-id'
+                    }}
+                    message={<span id='message-id'>{this.state.msg}</span>}
+                />
             </Card>
         )
     }
