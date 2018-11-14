@@ -17,7 +17,7 @@ const checkLogin = accessToken =>
             let access = false
             if (json.msg) {
                 // 登录有效
-                store.dispatch(login('fylder'))
+                store.dispatch(login(json.username))
                 access = true
             } else {
                 // 登录失效
@@ -35,10 +35,11 @@ const checkLogin = accessToken =>
 const requireAuth = (Layout, props) => {
     const state = store.getState()
     if (!state.user.username) {
-        // 未登录
         const ACCESS_TOKEN = window.localStorage.accessToken
-        console.log(`未登录:${window.localStorage.username}`)
         // 首次进入登录检测
+        if (window.localStorage.username) {
+            store.dispatch(login(window.localStorage.username))
+        }
         if (ACCESS_TOKEN) {
             const access = checkLogin(ACCESS_TOKEN)
             if (access) {
@@ -51,7 +52,15 @@ const requireAuth = (Layout, props) => {
         } else {
             return <Redirect to='/login' />
         }
-        store.dispatch(login(window.localStorage.username))
+        if (window.localStorage.username) {
+            store.dispatch(login(window.localStorage.username))
+        } else {
+            return <Redirect to='/login' />
+        }
+    }
+    if (!window.localStorage.username) {
+        store.dispatch(logout(''))
+        return <Redirect to='/login' />
     }
     return <Layout {...props} />
 }
