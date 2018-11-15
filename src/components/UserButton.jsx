@@ -31,7 +31,7 @@ class UserButton extends React.Component {
     }
 
     handleLogout = () => {
-        store.dispatch(logout(''))
+        store.dispatch(logout())
         this.props.history.push('/home')
     }
 

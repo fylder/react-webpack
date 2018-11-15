@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { fetch as fetchPolyfill } from 'whatwg-fetch'
 import store from '../redux/store'
-import { login, logout } from '../redux/actions'
+import { login, logout, reset } from '../redux/actions'
 
 const checkLogin = accessToken =>
     fetchPolyfill('http://127.0.0.1:7001/user/authenticate', {
@@ -20,46 +20,37 @@ const checkLogin = accessToken =>
                 store.dispatch(login(json.username))
                 access = true
             } else {
+                // Invalid token: access token is invalid
                 // 登录失效
-                store.dispatch(logout(''))
+                store.dispatch(reset())
                 access = false
             }
             return access
         })
         .catch(ex => {
             console.log('ex:', ex)
+            store.dispatch(reset())
             return false
         })
 
 // 登录验证
 const requireAuth = (Layout, props) => {
     const state = store.getState()
-    if (!state.user.username) {
-        const ACCESS_TOKEN = window.localStorage.accessToken
-        // 首次进入登录检测
-        if (window.localStorage.username) {
-            store.dispatch(login(window.localStorage.username))
-        }
-        if (ACCESS_TOKEN) {
-            const access = checkLogin(ACCESS_TOKEN)
-            if (access) {
-                return <Layout {...props} />
-            }
-            if (!window.localStorage.username) {
-                // Invalid token: access token is invalid
-                return <Redirect to='/login' />
-            }
-        } else {
+    if (state.user.username) {
+        if (!window.localStorage.username) {
+            store.dispatch(logout())
             return <Redirect to='/login' />
         }
-        if (window.localStorage.username) {
-            store.dispatch(login(window.localStorage.username))
-        } else {
-            return <Redirect to='/login' />
-        }
+        return <Layout {...props} />
     }
-    if (!window.localStorage.username) {
-        store.dispatch(logout(''))
+    // 首次进入登录检测
+    if (window.localStorage.username) {
+        store.dispatch(login(window.localStorage.username))
+    }
+    const ACCESS_TOKEN = window.localStorage.accessToken
+    if (ACCESS_TOKEN) {
+        checkLogin(ACCESS_TOKEN) // 检测访问口令失效
+    } else {
         return <Redirect to='/login' />
     }
     return <Layout {...props} />

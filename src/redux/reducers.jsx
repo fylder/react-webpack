@@ -10,6 +10,10 @@ const user = (state = { username: '' }, action) => {
             window.localStorage.removeItem('accessToken')
             window.localStorage.removeItem('username')
             return action
+        case TYPE.USER_RESET:
+            window.localStorage.removeItem('accessToken')
+            window.localStorage.removeItem('username')
+            return action
         default:
             return state
     }

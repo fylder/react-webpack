@@ -1,5 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import pink from '@material-ui/core/colors/pink'
 import blue from '@material-ui/core/colors/blue'
@@ -11,10 +13,13 @@ import Home from '../pagers/Home'
 import About from '../pagers/About'
 import Menu from './Menu'
 import Login from '../pagers/Login'
-import './layout.less'
+import * as TYPE from '../redux/types'
 import Photo from '../pagers/Photo'
 import Album from '../pagers/Album'
 import Upload from '../pagers/Upload'
+import store from '../redux/store'
+import { logout } from '../redux/actions'
+import './layout.less'
 
 const theme = createMuiTheme({
     palette: {
@@ -89,4 +94,11 @@ class Layout extends React.Component {
         )
     }
 }
-export default Layout
+const mapStateToProps = (state, ownProps) => {
+    if (state.user.type === TYPE.USER_RESET) {
+        store.dispatch(logout())
+        ownProps.history.push('/login')
+    }
+    return state
+}
+export default withRouter(connect(mapStateToProps)(Layout))
