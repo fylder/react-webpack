@@ -1,34 +1,46 @@
 import Loadable from 'react-loadable'
-import Home from '../pagers/Home'
+import Loading from '../pagers/Loading'
 
-export const ahh = '123'
+const delayTime = 300 // 0.3 seconds
+
+export const AsyncHome = () =>
+    Loadable({
+        loader: () => import('../pagers/Home'),
+        loading: Loading,
+        delay: delayTime
+    })
 
 export const AsyncLogin = () =>
     Loadable({
         loader: () => import('../pagers/Login'),
-        loading: Home
+        loading: Loading,
+        delay: delayTime
     })
 
 export const AsyncAbout = () =>
     Loadable({
         loader: () => import('../pagers/About'),
-        loading: Home
+        loading: Loading,
+        delay: delayTime
     })
 
 export const AsyncPhoto = () =>
     Loadable({
         loader: () => import('../pagers/Photo'),
-        loading: Home
+        loading: Loading,
+        delay: delayTime
     })
 
 export const AsyncAlbum = () =>
     Loadable({
         loader: () => import('../pagers/Album'),
-        loading: Home
+        loading: Loading,
+        delay: delayTime
     })
 
 export const AsyncUpload = () =>
     Loadable({
         loader: () => import('../pagers/Upload'),
-        loading: Home
+        loading: Loading,
+        delay: delayTime
     })

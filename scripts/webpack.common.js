@@ -10,7 +10,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].[hash:8].js'
+        filename: '[name].[hash:8].js',
+        chunkFilename: 'bundle.[chunkhash:8].js',
     },
     plugins: [
         new ProgressBarPlugin({
