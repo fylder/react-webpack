@@ -19,7 +19,7 @@ class Login extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     if (state.user.type === TYPE.USER_LOGIN) {
-        ownProps.history.push('/home')
+        ownProps.history.push('/album')
     }
     return state
 }

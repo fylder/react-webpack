@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import * as TYPE from '../redux/types'
 import UserButton from './UserButton'
+import store from '../redux/store'
 
 const styles = {
     root: {
@@ -27,9 +28,6 @@ const styles = {
 class HeaderAppBar extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            username: this.props.username
-        }
     }
 
     // 登录
@@ -44,8 +42,10 @@ class HeaderAppBar extends React.Component {
         this.state = {
             username: this.props.username
         }
-        if (this.state.username) {
-            btn = <UserButton username={this.props.username} />
+        if (store.getState().user.username) {
+            btn = <UserButton username={store.getState().user.username} />
+        } else if (window.localStorage.username) {
+            btn = <UserButton username={window.localStorage.username} />
         } else {
             btn = (
                 <Button color='inherit' onClick={this.handlerLogin.bind(this)}>
