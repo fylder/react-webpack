@@ -8,7 +8,9 @@
     "start": "webpack-dev-server --open --color --config ./scripts/webpack.dev.js",
     "build": "webpack --config ./scripts/webpack.prod.js",
     "lint": "eslint **/*.jsx --ignore-pattern node_modules/",
-    "stylelint-check": "stylelint-config-prettier-check"
+    "stylelint-check": "stylelint-config-prettier-check",
+    "docker-start": "docker-compose up -d",
+    "docker-stop": "docker-compose down"
   },
   "author": "fylder",
   "license": "ISC",
@@ -25,6 +27,9 @@
     "filepond-plugin-image-transform": "^3.0.3",
     "prop-types": "^15.6.2",
     "qs": "^6.5.2",
+    "rc-banner-anim": "^2.2.1",
+    "rc-queue-anim": "^1.6.11",
+    "rc-tween-one": "^2.3.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-filepond": "^5.0.0",

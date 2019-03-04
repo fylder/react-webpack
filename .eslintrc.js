@@ -28,6 +28,7 @@ module.exports = {
         "semi": "off",
         "quotes": ["error", "single"],
         "jsx-quotes": ["error", "prefer-single"],
+        "comma-dangle": ["error", "never"],
         "generator-star-spacing": "error",
         "no-useless-constructor": "off",
         "react/prefer-stateless-function": "off",
@@ -60,6 +61,7 @@ module.exports = {
                 "flatTernaryExpressions": true
             }
         ],
+        // "indent": ["error", 4],
         "react/jsx-indent": ["error", 4],
     }
 };

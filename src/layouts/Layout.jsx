@@ -1,11 +1,12 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import pink from '@material-ui/core/colors/pink'
 import blue from '@material-ui/core/colors/blue'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import * as Routers from '../router/AsyncPagers'
 import AsyncRouter from '../router/AsyncRouter'
 import HeaderAppBar from '../components/Header'
 import Menu from './Menu'
@@ -32,29 +33,38 @@ class Layout extends React.Component {
             <MuiThemeProvider theme={theme}>
                 <div className='layout-box'>
                     <HeaderAppBar className='layout-header' />
-                    <div className='layout-container'>
-                        <Grid item xs={12} container justify='center'>
-                            <Grid
-                                className='layout-grid'
-                                container
-                                item
-                                xs={12}
-                                sm={10}
-                                md={9}
-                                justify='center'
-                                alignItems='stretch'
-                            >
-                                <Grid item xs={12} sm={1} md={2}>
-                                    <Menu />
-                                </Grid>
-                                <Grid item xs={12} sm={8} md={10}>
-                                    <Paper className='layout-pager' square>
-                                        <AsyncRouter />
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </div>
+                    <Switch>
+                        <Route exact path='/' component={Routers.AsyncHome()} />
+                        <Route exact path='/home' component={Routers.AsyncHome()} />
+                        <Route path='/login' component={Routers.AsyncLogin()} />
+                        <Route
+                            render={() => (
+                                <div className='layout-container'>
+                                    <Grid item xs={12} container justify='center'>
+                                        <Grid
+                                            className='layout-grid'
+                                            container
+                                            item
+                                            xs={12}
+                                            sm={10}
+                                            md={9}
+                                            justify='center'
+                                            alignItems='stretch'
+                                        >
+                                            <Grid item xs={12} sm={1} md={2}>
+                                                <Menu />
+                                            </Grid>
+                                            <Grid item xs={12} sm={8} md={10}>
+                                                <Paper className='layout-pager' square>
+                                                    <AsyncRouter />
+                                                </Paper>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </div>
+                            )}
+                        />
+                    </Switch>
                 </div>
             </MuiThemeProvider>
         )

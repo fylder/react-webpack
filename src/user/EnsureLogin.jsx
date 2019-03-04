@@ -2,11 +2,13 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { fetch as fetchPolyfill } from 'whatwg-fetch'
 import store from '../redux/store'
+import config from '../config/config'
 import { login, logout, reset } from '../redux/actions'
 
 const checkLogin = accessToken =>
-    fetchPolyfill('http://127.0.0.1:7001/user/authenticate', {
+    fetchPolyfill(`${config.host}/user/authenticate`, {
         method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
             Authorization: `Bearer ${accessToken}`

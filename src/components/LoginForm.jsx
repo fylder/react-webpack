@@ -9,6 +9,7 @@ import { fetch as fetchPolyfill } from 'whatwg-fetch'
 import { stringify } from 'qs'
 import store from '../redux/store'
 import { login } from '../redux/actions'
+import config from '../config/config'
 import './loginForm.less'
 
 class LoginForm extends React.Component {
@@ -35,7 +36,9 @@ class LoginForm extends React.Component {
             password: data.password,
             grant_type: 'password'
         }
-        fetchPolyfill('http://127.0.0.1:7001/user/login', {
+        fetchPolyfill(`${config.host}/user/login`, {
+            mode: 'cors',
+            // credentials: 'include',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',

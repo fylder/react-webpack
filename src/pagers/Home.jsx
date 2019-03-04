@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Grid from '@material-ui/core/Grid'
-import ImgCard from '../components/ImgCard'
+// import Grid from '@material-ui/core/Grid'
+// import ImgCard from '../components/ImgCard'
+import Banner from '../components/Banner'
 
 class Home extends React.Component {
     constructor(props) {
@@ -10,11 +11,14 @@ class Home extends React.Component {
 
     render() {
         return (
-            <Grid container justify='center'>
-                <Grid item xs={12} sm={6}>
-                    <ImgCard maxWidth={345} />
-                </Grid>
-            </Grid>
+            <div>
+                <Banner />
+                {/* <Grid item xs={12} container justify='center' alignItems='stretch'>
+                    <Grid item xs={12}>
+                        <ImgCard maxWidth={345} />
+                    </Grid>
+                </Grid> */}
+            </div>
         )
     }
 }
