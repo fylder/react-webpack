@@ -5,7 +5,8 @@ services:
         image: nginx:1.15.6
         ports:
             # 8080对应外部访问的端口,2333对应内部映射端口
-            - '8080:2333'
+            - 80:80
+            - 443:443
         volumes:
             - ./dist:/home/fylder/react-webpack
             - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
