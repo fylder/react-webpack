@@ -9,7 +9,7 @@
     "build": "webpack --config ./scripts/webpack.prod.js",
     "lint": "eslint **/*.jsx --ignore-pattern node_modules/",
     "stylelint-check": "stylelint-config-prettier-check",
-    "docker-start": "docker-compose up -d",
+    "docker-start": "yarn build && docker-compose up -d",
     "docker-stop": "docker-compose down"
   },
   "author": "fylder",

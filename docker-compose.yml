@@ -9,5 +9,7 @@ services:
         volumes:
             - ./dist:/home/fylder/react-webpack
             - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./config/cert/1887413_www.fylder.me.pem:/etc/nginx/cert/1887413_www.fylder.me.pem
+            - ./config/cert/1887413_www.fylder.me.key:/etc/nginx/cert/1887413_www.fylder.me.key
         command: [nginx-debug, '-g', 'daemon off;']
         restart: always

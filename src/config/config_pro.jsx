@@ -1,3 +1,3 @@
 exports.config = {
-    host: 'http://www.fylder.me:8002'
+    host: 'https://www.fylder.me:8002'
 }

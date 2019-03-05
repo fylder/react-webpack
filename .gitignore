@@ -9,6 +9,7 @@
 # production
 /build
 /dist
+/config/cert
 
 # misc
 .DS_Store
