@@ -10,16 +10,7 @@ class Home extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <Banner />
-                {/* <Grid item xs={12} container justify='center' alignItems='stretch'>
-                    <Grid item xs={12}>
-                        <ImgCard maxWidth={345} />
-                    </Grid>
-                </Grid> */}
-            </div>
-        )
+        return <Banner />
     }
 }
 const mapStateToProps = (state /* , ownProps */) => ({

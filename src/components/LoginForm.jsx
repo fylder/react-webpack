@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
                 } else {
                     this.setState({
                         open: true,
-                        msg: json.error_description
+                        msg: '账号密码不对'
                     })
                 }
             })
