@@ -36,6 +36,12 @@ class UploadPic extends React.Component {
 
     render() {
         const url = `${config.host}/api/upload`
+        const server = {
+            url,
+            process: {
+                headers: { Authorization: `Bearer ${window.localStorage.accessToken}` }
+            }
+        }
         return (
             <div className='clearfix'>
                 <FilePond
@@ -47,7 +53,7 @@ class UploadPic extends React.Component {
                     // imageResizeTargetWidth={1000}
                     // imageResizeTargetHeight={1000}
                     acceptedFileTypes={['image/jpeg']}
-                    server={url}
+                    server={server}
                     oninit={() => this.handleInit()}
                     onupdatefiles={fileItems => {
                         // Set current file objects to this.state
