@@ -35,6 +35,15 @@ class HeaderAppBar extends React.Component {
         this.props.history.push('/login')
     }
 
+    // 跳转
+    handlerHome = () => {
+        if (store.getState().user.username || window.localStorage.username) {
+            this.props.history.push('/about')
+        } else {
+            this.props.history.push('/')
+        }
+    }
+
     render() {
         const { classes } = this.props
 
@@ -61,7 +70,9 @@ class HeaderAppBar extends React.Component {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant='h6' color='inherit' className={classes.grow}>
-                        Fylder
+                        <Button color='inherit' onClick={this.handlerHome.bind(this)}>
+                            Fylder
+                        </Button>
                     </Typography>
                     {btn}
                     {/* <Button color='inherit'>Login</Button> */}
