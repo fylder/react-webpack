@@ -1,18 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
 import LoginForm from '../components/LoginForm'
 import * as TYPE from '../redux/types'
 
 class Login extends React.Component {
     render() {
         return (
-            <Grid container justify='center'>
-                <Grid item xs={10} sm={8} md={3}>
-                    <LoginForm />
-                </Grid>
-            </Grid>
+            <Container maxWidth='xs'>
+                <LoginForm />
+            </Container>
         )
     }
 }

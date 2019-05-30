@@ -2,6 +2,8 @@ import React from 'react'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Container from '@material-ui/core/Container'
 import pink from '@material-ui/core/colors/pink'
 import blue from '@material-ui/core/colors/blue'
 import Grid from '@material-ui/core/Grid'
@@ -39,29 +41,21 @@ class Layout extends React.Component {
                         <Route path='/login' component={Routers.AsyncLogin()} />
                         <Route
                             render={() => (
-                                <div className='layout-container'>
-                                    <Grid item xs={12} container justify='center'>
-                                        <Grid
-                                            className='layout-grid'
-                                            container
-                                            item
-                                            xs={12}
-                                            sm={10}
-                                            md={9}
-                                            justify='center'
-                                            alignItems='stretch'
-                                        >
+                                <React.Fragment>
+                                    <CssBaseline />
+                                    <Container fixed>
+                                        <Grid container>
                                             <Grid item xs={12} sm={1} md={2}>
                                                 <Menu />
                                             </Grid>
-                                            <Grid item xs={12} sm={8} md={10}>
+                                            <Grid item xs={12} sm={11} md={10}>
                                                 <Paper className='layout-pager' square>
                                                     <AsyncRouter />
                                                 </Paper>
                                             </Grid>
                                         </Grid>
-                                    </Grid>
-                                </div>
+                                    </Container>
+                                </React.Fragment>
                             )}
                         />
                     </Switch>

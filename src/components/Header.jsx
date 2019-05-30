@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -23,6 +24,9 @@ const styles = {
     menuButton: {
         marginLeft: -12,
         marginRight: 20
+    },
+    btn: {
+        textTransform: 'capitalize'
     }
 }
 class HeaderAppBar extends React.Component {
@@ -57,7 +61,7 @@ class HeaderAppBar extends React.Component {
             btn = <UserButton username={window.localStorage.username} />
         } else {
             btn = (
-                <Button color='inherit' onClick={this.handlerLogin.bind(this)}>
+                <Button color='inherit' className={classes.btn} onClick={this.handlerLogin.bind(this)}>
                     Login
                 </Button>
             )
@@ -69,13 +73,14 @@ class HeaderAppBar extends React.Component {
                     <IconButton className={classes.menuButton} color='inherit' aria-label='Menu'>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant='h6' color='inherit' className={classes.grow}>
-                        <Button color='inherit' onClick={this.handlerHome.bind(this)}>
-                            Fylder
+                    <Box display='inline' className={classes.grow}>
+                        <Button color='inherit' className={classes.btn} onClick={this.handlerHome.bind(this)}>
+                            <Typography variant='h6' color='inherit'>
+                                Fylder
+                            </Typography>
                         </Button>
-                    </Typography>
+                    </Box>
                     {btn}
-                    {/* <Button color='inherit'>Login</Button> */}
                 </Toolbar>
             </AppBar>
         )

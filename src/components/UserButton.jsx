@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Popover from '@material-ui/core/Popover'
 import Paper from '@material-ui/core/Paper'
@@ -8,6 +9,12 @@ import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
 import store from '../redux/store'
 import { logout } from '../redux/actions'
+
+const styles = () => ({
+    btn: {
+        textTransform: 'inherit'
+    }
+})
 
 class UserButton extends React.Component {
     state = {
@@ -36,6 +43,7 @@ class UserButton extends React.Component {
     }
 
     render() {
+        const { classes } = this.props
         const { anchorEl } = this.state
         const open = Boolean(anchorEl)
         return (
@@ -45,6 +53,7 @@ class UserButton extends React.Component {
                     aria-haspopup='true'
                     // variant='contained'
                     color='inherit'
+                    className={classes.btn}
                     onClick={this.handleClick.bind(this)}
                 >
                     {this.props.username}
@@ -79,4 +88,4 @@ class UserButton extends React.Component {
     }
 }
 
-export default withRouter(UserButton)
+export default withStyles(styles)(withRouter(UserButton))
