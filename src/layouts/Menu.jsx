@@ -4,7 +4,7 @@ import MenuList from '@material-ui/core/MenuList'
 import MenuItem from '@material-ui/core/MenuItem'
 import Paper from '@material-ui/core/Paper'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
+import Typography from '@material-ui/core/Typography'
 import LinkedCamera from '@material-ui/icons/LinkedCamera'
 import Collections from '@material-ui/icons/Collections'
 import Photo from '@material-ui/icons/Photo'
@@ -54,31 +54,33 @@ class Menu extends React.Component {
                         <ListItemIcon className={styles.icon}>
                             <Bookmarks />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary='Home' />
+                        <Typography variant='inherit'>Home</Typography>
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 2)}>
                         <ListItemIcon className={styles.icon}>
                             <Collections />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary='Album' />
+                        <Typography variant='inherit'>Album</Typography>
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 3)}>
                         <ListItemIcon className={styles.icon}>
                             <Photo />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary='Photo' />
+                        <Typography variant='inherit'>Photo</Typography>
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 4)}>
                         <ListItemIcon className={styles.icon}>
                             <AddPhotoAlternate />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary='Upload' />
+                        <Typography variant='inherit'>Upload</Typography>
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 5)}>
                         <ListItemIcon className={styles.icon}>
                             <LinkedCamera />
                         </ListItemIcon>
-                        <ListItemText classes={{ primary: styles.primary }} inset primary='About' />
+                        <Typography variant='inherit' noWrap>
+                            About
+                        </Typography>
                     </MenuItem>
                 </MenuList>
             </Paper>
