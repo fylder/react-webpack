@@ -5,7 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
 import pink from '@material-ui/core/colors/pink'
-import blue from '@material-ui/core/colors/blue'
+import blueGrey from '@material-ui/core/colors/blueGrey'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import * as Routers from '../router/AsyncPagers'
@@ -21,7 +21,13 @@ const theme = createMuiTheme({
     palette: {
         primary: pink,
         secondary: {
-            main: blue.A400
+            light: pink.A200,
+            main: pink[500],
+            dark: pink.A700
+        },
+        text: {
+            primary: blueGrey[900],
+            secondary: blueGrey[50]
         }
     },
     typography: {

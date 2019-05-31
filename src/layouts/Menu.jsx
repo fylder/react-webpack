@@ -32,7 +32,7 @@ class Menu extends React.Component {
 
     handleShow = page => {
         if (page === 1) {
-            this.props.history.push('/home')
+            this.props.history.push('/statistics')
         } else if (page === 2) {
             this.props.history.push('/album')
         } else if (page === 3) {
@@ -54,7 +54,7 @@ class Menu extends React.Component {
                         <ListItemIcon className={styles.icon}>
                             <Bookmarks />
                         </ListItemIcon>
-                        <Typography variant='inherit'>Home</Typography>
+                        <Typography variant='inherit'>Statistics</Typography>
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 2)}>
                         <ListItemIcon className={styles.icon}>

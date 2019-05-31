@@ -44,3 +44,10 @@ export const AsyncUpload = () =>
         loading: Loading,
         delay: delayTime
     })
+
+export const AsyncStatistics = () =>
+    Loadable({
+        loader: () => import('../pagers/Statistics'),
+        loading: Loading,
+        delay: delayTime
+    })
