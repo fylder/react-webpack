@@ -54,11 +54,11 @@ export const dailySalesChart = {
 }
 
 export const lineChart = {
-    lineChartData: {
+    data: {
         labels: [1, 2, 3, 4, 5, 6, 7, 8],
         series: [[5, 9, 7, 8, 5, 3, 5, 4]]
     },
-    lineChartOptions: {
+    options: {
         low: 0,
         showArea: true
     },
@@ -95,7 +95,7 @@ export const lineChart = {
 }
 
 export const testChart = {
-    testData: {
+    data: {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         series: [[12, 9, 7, 8, 5], [2, 1, 3.5, 7, 3], [1, 3, 4, 5, 6]]
     },
@@ -135,7 +135,7 @@ export const testChart = {
 }
 
 export const testChart2 = {
-    testData: {
+    data: {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         series: [[1, 5, 2, 5, 4, 3], [2, 3, 4, 8, 1, 2], [5, 4, 3, 2, 1, 0.5]]
     },
