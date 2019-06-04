@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid'
 import pink from '@material-ui/core/colors/pink'
 import ChartistGraph from 'react-chartist'
 import { dailySalesChart, lineChart, testChart, testChart2 } from '../model/charts'
+import '../assets/styles/chartlist-material-react.less'
 
 const styles = {
     headerCard: {
@@ -29,6 +30,12 @@ const styles = {
         paddingBottom: 24,
         paddingRight: 24,
         background: pink
+    },
+    chartCard: {
+        margin: 8,
+        padding: 8,
+        width: 'fit-content',
+        background: pink.A200
     }
 }
 
@@ -54,48 +61,59 @@ class Statistics extends React.Component {
                     </Typography>
                     <Grid container>
                         <Grid item xs={12} sm={6} md={4}>
-                            <ChartistGraph
-                                className='ct-chart'
-                                data={dailySalesChart.data}
-                                type='Line'
-                                options={dailySalesChart.options}
-                                listener={dailySalesChart.animation}
-                            />
+                            <Paper elevation={2} className={classes.chartCard}>
+                                <ChartistGraph
+                                    className='ct-chart'
+                                    data={dailySalesChart.data}
+                                    type='Line'
+                                    options={dailySalesChart.options}
+                                    listener={dailySalesChart.animation}
+                                />
+                            </Paper>
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
-                            <ChartistGraph
-                                data={lineChart.lineChartData}
-                                options={lineChart.lineChartOptions}
-                                type='Line'
-                                listener={dailySalesChart.animation}
-                            />
+                            <Paper elevation={2} className={classes.chartCard}>
+                                <ChartistGraph
+                                    className='ct-chart'
+                                    data={lineChart.lineChartData}
+                                    options={lineChart.lineChartOptions}
+                                    type='Line'
+                                    listener={dailySalesChart.animation}
+                                />
+                            </Paper>
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
-                            <ChartistGraph
-                                className='ct-chart'
-                                data={dailySalesChart.data}
-                                type='Line'
-                                options={dailySalesChart.options}
-                                listener={dailySalesChart.animation}
-                            />
+                            <Paper elevation={2} className={classes.chartCard}>
+                                <ChartistGraph
+                                    className='ct-chart'
+                                    data={dailySalesChart.data}
+                                    type='Line'
+                                    options={dailySalesChart.options}
+                                    listener={dailySalesChart.animation}
+                                />
+                            </Paper>
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
-                            <ChartistGraph
-                                className='ct-chart'
-                                data={testChart.testData}
-                                type='Line'
-                                options={testChart.options}
-                                // listener={testChart.animation}
-                            />
+                            <Paper elevation={2} className={classes.chartCard}>
+                                <ChartistGraph
+                                    className='ct-chart'
+                                    data={testChart.testData}
+                                    type='Line'
+                                    options={testChart.options}
+                                    listener={testChart.animation}
+                                />
+                            </Paper>
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
-                            <ChartistGraph
-                                className='ct-chart'
-                                data={testChart2.testData}
-                                type='Line'
-                                options={testChart2.options}
-                                listener={testChart2.animation}
-                            />
+                            <Paper elevation={2} className={classes.chartCard}>
+                                <ChartistGraph
+                                    // className='ct-chart'
+                                    data={testChart2.testData}
+                                    type='Line'
+                                    options={testChart2.options}
+                                    listener={testChart2.animation}
+                                />
+                            </Paper>
                         </Grid>
                     </Grid>
                 </Paper>

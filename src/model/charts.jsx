@@ -106,7 +106,31 @@ export const testChart = {
         low: 0,
         fullWidth: true,
         // high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-        chartPadding: 10
+        chartPadding: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+        }
+    },
+    animation: {
+        draw: data => {
+            if (data.type === 'line' || data.type === 'area') {
+                data.element.animate({
+                    d: {
+                        begin: 400 * data.index,
+                        dur: 2000,
+                        from: data.path
+                            .clone()
+                            .scale(1, 0)
+                            .translate(0, data.chartRect.height())
+                            .stringify(),
+                        to: data.path.clone().stringify(),
+                        easing: Chartist.Svg.Easing.easeOutQuint
+                    }
+                })
+            }
+        }
     }
 }
 
@@ -121,7 +145,12 @@ export const testChart2 = {
         showArea: true,
         showPoint: false,
         // high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-        chartPadding: 10
+        chartPadding: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+        }
     },
     animation: {
         draw: data => {
