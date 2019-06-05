@@ -9,7 +9,7 @@ import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size'
 import FilePondPluginImageTransform from 'filepond-plugin-image-transform'
 import config from '../config/config'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
-import './uploadPic.less'
+import './less/uploadPic.less'
 
 // Register the plugins
 registerPlugin(

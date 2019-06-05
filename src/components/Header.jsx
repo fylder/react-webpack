@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
+import classNames from 'classnames'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -13,6 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import * as TYPE from '../redux/types'
 import UserButton from './UserButton'
 import store from '../redux/store'
+import './less/main.less'
 
 const styles = {
     root: {
@@ -24,9 +26,6 @@ const styles = {
     menuButton: {
         marginLeft: -12,
         marginRight: 20
-    },
-    btn: {
-        textTransform: 'capitalize'
     }
 }
 class HeaderAppBar extends React.Component {
@@ -42,7 +41,7 @@ class HeaderAppBar extends React.Component {
     // 跳转
     handlerHome = () => {
         if (store.getState().user.username || window.localStorage.username) {
-            this.props.history.push('/about')
+            this.props.history.push('/statistics')
         } else {
             this.props.history.push('/')
         }
@@ -61,7 +60,7 @@ class HeaderAppBar extends React.Component {
             btn = <UserButton username={window.localStorage.username} />
         } else {
             btn = (
-                <Button color='inherit' className={classes.btn} onClick={this.handlerLogin.bind(this)}>
+                <Button color='inherit' className='font-text-capitalize' onClick={this.handlerLogin.bind(this)}>
                     Login
                 </Button>
             )

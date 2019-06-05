@@ -6,7 +6,7 @@ import TweenOne from 'rc-tween-one'
 import React from 'react'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import toRenderProps from 'recompose/toRenderProps'
-import './banner.less'
+import './less/banner.less'
 
 const WithWidth = toRenderProps(withWidth())
 const { Element } = BannerAnim

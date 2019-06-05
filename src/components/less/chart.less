@@ -1,0 +1,55 @@
+@pink: #e91e63;
+@pink200: #ff4081;
+@pink400: #f50057;
+@white: #ffffff;
+
+.chart-card-lay {
+    margin: 20px 8px;
+
+    .chart-card {
+        padding: 2px;
+        width: fit-content;
+        background: @pink200;
+        transition: 0.7s;
+        position: relative;
+        z-index: 2;
+    }
+    // 联动内部
+    &:hover .chart-card {
+        background: @pink400;
+        transform: translateY(-42px);
+    }
+
+    .chart-lay {
+        position: relative;
+        text-align: center;
+
+        .chart-edit {
+            margin: 0px 8px;
+            padding: 8px;
+            width: calc(100% - 30px);
+            position: absolute;
+            top: -42px;
+            z-index: 1;
+            display: block;
+        }
+    }
+}
+
+.header-card {
+    padding: 8px 24px;
+    background: @pink;
+    width: fit-content;
+    position: relative;
+    top: 24px;
+    left: 12px;
+}
+
+.chart-title {
+    padding: 8px;
+}
+
+.chart-pager {
+    padding: 32px 24px;
+    background: @white;
+}

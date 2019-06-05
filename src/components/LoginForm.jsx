@@ -10,7 +10,7 @@ import { stringify } from 'qs'
 import store from '../redux/store'
 import { login } from '../redux/actions'
 import config from '../config/config'
-import './loginForm.less'
+import './less/loginForm.less'
 
 class LoginForm extends React.Component {
     constructor(props, context) {

@@ -1,76 +1,75 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import { withRouter } from 'react-router-dom'
+import classNames from 'classnames'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import pink from '@material-ui/core/colors/pink'
+import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
+import BarChart from '@material-ui/icons/BarChart'
 import ChartistGraph from 'react-chartist'
 import { dailySalesChart, lineChart, testChart, testChart2 } from '../model/charts'
 import '../assets/styles/chartlist-material-react.less'
-
-const styles = {
-    headerCard: {
-        paddingLeft: 24,
-        paddingTop: 8,
-        paddingBottom: 8,
-        paddingRight: 24,
-        width: 'fit-content',
-        background: pink[500],
-        position: 'relative',
-        top: 24,
-        left: 12
-    },
-    title: {
-        padding: 8
-    },
-    pager: {
-        paddingLeft: 24,
-        paddingTop: 32,
-        paddingBottom: 24,
-        paddingRight: 24,
-        background: pink
-    },
-    chartCard: {
-        margin: 8,
-        padding: 8,
-        width: 'fit-content',
-        background: pink.A200
-    }
-}
+import './less/main.less'
+import './less/chart.less'
 
 class Chart extends React.Component {
     constructor(props, context) {
         super(props, context)
     }
 
+    handlerDetail = () => {
+        this.props.history.push('/photo')
+    }
+
     render() {
-        const { classes } = this.props
         const datas = [dailySalesChart, lineChart, dailySalesChart, testChart, testChart2]
         return (
             <div>
-                <Paper elevation={6} className={classes.headerCard}>
+                <Paper elevation={6} className='header-card'>
                     <Typography variant='h5' color='textSecondary'>
                         Statistics
                     </Typography>
                 </Paper>
-                <Paper className={classes.pager}>
-                    <Typography variant='h6' color='textPrimary' className={classes.title}>
+                <Paper className='chart-pager'>
+                    <Typography
+                        variant='h6'
+                        color='textPrimary'
+                        className={classNames('chart-title', 'font-text-capitalize')}
+                    >
                         fylder
                     </Typography>
                     <Grid container>
                         {datas.map((item, index) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} key={index}>
-                                    <Paper elevation={2} className={classes.chartCard}>
-                                        <ChartistGraph
-                                            className='ct-chart'
-                                            data={item.data}
-                                            type='Line'
-                                            options={item.options}
-                                            listener={item.animation}
-                                        />
-                                    </Paper>
+                                    <Box display='flex' justifyContent='center'>
+                                        <Box component='div' display='inline' className='chart-card-lay'>
+                                            <Paper elevation={2} className='chart-card'>
+                                                <ChartistGraph
+                                                    className='ct-chart'
+                                                    data={item.data}
+                                                    type='Line'
+                                                    options={item.options}
+                                                    listener={item.animation}
+                                                />
+                                            </Paper>
+                                            <div className='chart-lay'>
+                                                <div className='chart-edit'>
+                                                    <Button
+                                                        variant='contained'
+                                                        color='primary'
+                                                        size='small'
+                                                        className='font-text-capitalize'
+                                                        onClick={this.handlerDetail.bind(this)}
+                                                    >
+                                                        chart
+                                                        <BarChart />
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        </Box>
+                                    </Box>
                                 </Grid>
                             )
                         })}
@@ -80,8 +79,5 @@ class Chart extends React.Component {
         )
     }
 }
-Chart.propTypes = {
-    classes: PropTypes.object.isRequired
-}
 
-export default withStyles(styles)(Chart)
+export default withRouter(Chart)
