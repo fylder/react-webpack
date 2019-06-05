@@ -16,6 +16,7 @@ import store from '../redux/store'
 import { logout } from '../redux/actions'
 import * as TYPE from '../redux/types'
 import './layout.less'
+import '../components/less/main.less'
 
 const theme = createMuiTheme({
     palette: {

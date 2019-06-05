@@ -1,15 +1,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import classNames from 'classnames'
 import Button from '@material-ui/core/Button'
 import Popover from '@material-ui/core/Popover'
 import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
 import store from '../redux/store'
 import { logout } from '../redux/actions'
-import './less/main.less'
 
 class UserButton extends React.Component {
     state = {
@@ -47,10 +46,11 @@ class UserButton extends React.Component {
                     aria-haspopup='true'
                     // variant='contained'
                     color='inherit'
-                    className='font-text-inherit'
                     onClick={this.handleClick.bind(this)}
                 >
-                    {this.props.username}
+                    <Typography color='inherit' className='font-text-none'>
+                        {this.props.username}
+                    </Typography>
                 </Button>
                 <Popover
                     id='simple-popper'

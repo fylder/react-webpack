@@ -10,7 +10,6 @@ import BarChart from '@material-ui/icons/BarChart'
 import ChartistGraph from 'react-chartist'
 import { dailySalesChart, lineChart, testChart, testChart2 } from '../model/charts'
 import '../assets/styles/chartlist-material-react.less'
-import './less/main.less'
 import './less/chart.less'
 
 class Chart extends React.Component {
