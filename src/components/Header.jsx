@@ -39,7 +39,7 @@ class HeaderAppBar extends React.Component {
     // 跳转
     handlerHome = () => {
         if (store.getState().user.username || window.localStorage.username) {
-            this.props.history.push('/statistics')
+            this.props.history.push('/album')
         } else {
             this.props.history.push('/')
         }

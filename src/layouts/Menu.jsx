@@ -32,11 +32,11 @@ class Menu extends React.Component {
 
     handleShow = page => {
         if (page === 1) {
-            this.props.history.push('/statistics')
-        } else if (page === 2) {
             this.props.history.push('/album')
-        } else if (page === 3) {
+        } else if (page === 2) {
             this.props.history.push('/photo')
+        } else if (page === 3) {
+            this.props.history.push('/statistics')
         } else if (page === 4) {
             this.props.history.push('/upload')
         } else if (page === 5) {
@@ -52,21 +52,21 @@ class Menu extends React.Component {
                 <MenuList>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 1)}>
                         <ListItemIcon className={styles.icon}>
-                            <Bookmarks />
-                        </ListItemIcon>
-                        <Typography variant='inherit'>Statistics</Typography>
-                    </MenuItem>
-                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 2)}>
-                        <ListItemIcon className={styles.icon}>
                             <Collections />
                         </ListItemIcon>
                         <Typography variant='inherit'>Album</Typography>
                     </MenuItem>
-                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 3)}>
+                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 2)}>
                         <ListItemIcon className={styles.icon}>
                             <Photo />
                         </ListItemIcon>
                         <Typography variant='inherit'>Photo</Typography>
+                    </MenuItem>
+                    <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 3)}>
+                        <ListItemIcon className={styles.icon}>
+                            <Bookmarks />
+                        </ListItemIcon>
+                        <Typography variant='inherit'>Statistics</Typography>
                     </MenuItem>
                     <MenuItem className={styles.menuItem} onClick={this.handleShow.bind(this, 4)}>
                         <ListItemIcon className={styles.icon}>

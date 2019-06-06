@@ -9,7 +9,6 @@ import Box from '@material-ui/core/Box'
 import BarChart from '@material-ui/icons/BarChart'
 import ChartistGraph from 'react-chartist'
 import { dailySalesChart, lineChart, testChart, testChart2 } from '../model/charts'
-import '../assets/styles/chartlist-material-react.less'
 import './less/chart.less'
 
 class Chart extends React.Component {
@@ -24,9 +23,9 @@ class Chart extends React.Component {
     render() {
         const datas = [dailySalesChart, lineChart, dailySalesChart, testChart, testChart2]
         return (
-            <div>
-                <Paper elevation={6} className='header-card'>
-                    <Typography variant='h5' color='textSecondary'>
+            <Box>
+                <Paper className='header-card' elevation={6}>
+                    <Typography variant='h5' color='secondary'>
                         Statistics
                     </Typography>
                 </Paper>
@@ -74,7 +73,7 @@ class Chart extends React.Component {
                         })}
                     </Grid>
                 </Paper>
-            </div>
+            </Box>
         )
     }
 }

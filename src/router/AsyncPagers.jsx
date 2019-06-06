@@ -51,3 +51,17 @@ export const AsyncStatistics = () =>
         loading: Loading,
         delay: delayTime
     })
+
+export const AsyncAlbumPager = () =>
+    Loadable({
+        loader: () => import('../pagers/AlbumPager'),
+        loading: Loading,
+        delay: delayTime
+    })
+
+export const AsyncPhotoPager = () =>
+    Loadable({
+        loader: () => import('../pagers/PhotoPager'),
+        loading: Loading,
+        delay: delayTime
+    })

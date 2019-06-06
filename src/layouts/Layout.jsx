@@ -5,30 +5,33 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
 import pink from '@material-ui/core/colors/pink'
-import blueGrey from '@material-ui/core/colors/blueGrey'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import * as Routers from '../router/AsyncPagers'
 import AsyncRouter from '../router/AsyncRouter'
 import HeaderAppBar from '../components/Header'
 import Menu from './Menu'
+import requireAuth from '../user/EnsureLogin'
 import store from '../redux/store'
 import { logout } from '../redux/actions'
 import * as TYPE from '../redux/types'
 import './layout.less'
 import '../components/less/main.less'
+import '../assets/styles/chartlist-material-react.less'
 
 const theme = createMuiTheme({
     palette: {
         primary: pink,
         secondary: {
             light: pink.A200,
-            main: pink[500],
-            dark: pink.A700
+            main: '#FFFFFF',
+            dark: pink[500]
         },
-        text: {
-            primary: blueGrey[900],
-            secondary: blueGrey[50]
+        action: {
+            active: pink[500],
+            hover: pink[500],
+            selected: pink[500],
+            disabled: pink[500]
         }
     },
     typography: {
@@ -46,6 +49,8 @@ class Layout extends React.Component {
                         <Route exact path='/' component={Routers.AsyncHome()} />
                         <Route exact path='/home' component={Routers.AsyncHome()} />
                         <Route path='/login' component={Routers.AsyncLogin()} />
+                        <Route path='/album' component={props => requireAuth(Routers.AsyncAlbumPager(), props)} />
+                        <Route path='/photo' component={props => requireAuth(Routers.AsyncPhotoPager(), props)} />
                         <Route
                             render={() => (
                                 <React.Fragment>

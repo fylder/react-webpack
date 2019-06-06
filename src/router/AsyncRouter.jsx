@@ -8,8 +8,8 @@ class AsyncRouter extends React.Component {
         return (
             <Switch>
                 <Route path='/about' component={props => requireAuth(Routers.AsyncAbout(), props)} />
-                <Route path='/album' component={props => requireAuth(Routers.AsyncAlbum(), props)} />
-                <Route path='/photo' component={props => requireAuth(Routers.AsyncPhoto(), props)} />
+                {/* <Route path='/album' component={props => requireAuth(Routers.AsyncAlbum(), props)} /> */}
+                {/* <Route path='/photo' component={props => requireAuth(Routers.AsyncPhoto(), props)} /> */}
                 <Route path='/upload' component={props => requireAuth(Routers.AsyncUpload(), props)} />
                 <Route path='/statistics' component={props => requireAuth(Routers.AsyncStatistics(), props)} />
             </Switch>
