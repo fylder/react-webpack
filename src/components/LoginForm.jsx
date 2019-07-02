@@ -50,8 +50,10 @@ class LoginForm extends React.Component {
             .then(response => response.json())
             .then(json => {
                 const accessToken = json.access_token
+                const expiresIn = json.expires_in
                 if (accessToken) {
                     window.localStorage.accessToken = accessToken
+                    window.localStorage.expires = Date.now() + expiresIn * 1000
                     this.setState({
                         open: true,
                         msg: `save token:${accessToken}`

@@ -52,6 +52,11 @@ class HeaderAppBar extends React.Component {
         this.state = {
             username: this.props.username
         }
+
+        if (window.localStorage.expires < Date.now()) {
+            // 超时
+            window.localStorage.removeItem('username')
+        }
         if (store.getState().user.username) {
             btn = <UserButton username={store.getState().user.username} />
         } else if (window.localStorage.username) {
