@@ -33,7 +33,7 @@
     "rc-banner-anim": "^2.3.0",
     "rc-queue-anim": "^1.8.1",
     "rc-tween-one": "^2.6.0",
-    "react": "^16.9.0",
+    "react": "^16.13.1",
     "react-chartist": "^0.13.3",
     "react-dom": "^16.9.0",
     "react-filepond": "^7.0.1",

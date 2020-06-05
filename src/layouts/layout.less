@@ -1,42 +1,60 @@
+@footer-color: #666666;
+
 html,
 body,
 #root {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 .layout-box {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 .layout-header {
-  flex: 0 1 auto;
+    flex: 0 1 auto;
 }
 
 .layout-container {
-  flex: 1 1 auto;
-  align-content: center;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+    flex: 1 1 auto;
+    align-content: center;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .layout-grid {
-  @media screen {
-    height: auto;
-  }
-  @media (max-width: 600px) {
-    min-height: auto;
-  }
+    @media screen {
+        height: auto;
+    }
+    @media (max-width: 600px) {
+        min-height: auto;
+    }
 }
 
 .layout-pager {
-  @media screen {
-    padding: 2rem 0;
-  }
-  @media (max-width: 600px) {
-    padding: 1rem;
-  }
+    @media screen {
+        padding: 2rem 0;
+    }
+    @media (max-width: 600px) {
+        padding: 1rem;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 28px;
+}
+
+.footer-content {
+    text-align: center; //水平居中
+    font-size: 14px;
+    color: @footer-color;
+    a {
+        color: @footer-color;
+    }
 }

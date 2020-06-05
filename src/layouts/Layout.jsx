@@ -45,32 +45,52 @@ class Layout extends React.Component {
             <MuiThemeProvider theme={theme}>
                 <div className='layout-box'>
                     <HeaderAppBar className='layout-header' />
-                    <Switch>
-                        <Route exact path='/' component={Routers.AsyncHome()} />
-                        <Route exact path='/home' component={Routers.AsyncHome()} />
-                        <Route path='/login' component={Routers.AsyncLogin()} />
-                        <Route path='/album' component={props => requireAuth(Routers.AsyncAlbumPager(), props)} />
-                        <Route path='/photo' component={props => requireAuth(Routers.AsyncPhotoPager(), props)} />
-                        <Route
-                            render={() => (
-                                <React.Fragment>
-                                    <CssBaseline />
-                                    <Container fixed>
-                                        <Grid container>
-                                            <Grid item xs={12} sm={1} md={2}>
-                                                <Menu />
+                    <div className='layout-container'>
+                        <Switch>
+                            <Route exact path='/' component={Routers.AsyncHome()} />
+                            <Route exact path='/home' component={Routers.AsyncHome()} />
+                            <Route path='/login' component={Routers.AsyncLogin()} />
+                            <Route path='/album' component={props => requireAuth(Routers.AsyncAlbumPager(), props)} />
+                            <Route path='/photo' component={props => requireAuth(Routers.AsyncPhotoPager(), props)} />
+                            <Route
+                                render={() => (
+                                    <React.Fragment key='page'>
+                                        <CssBaseline />
+                                        <Container fixed>
+                                            <Grid container>
+                                                <Grid item xs={12} sm={1} md={2}>
+                                                    <Menu />
+                                                </Grid>
+                                                <Grid item xs={12} sm={11} md={10}>
+                                                    <Paper className='layout-pager' square>
+                                                        <AsyncRouter />
+                                                    </Paper>
+                                                </Grid>
                                             </Grid>
-                                            <Grid item xs={12} sm={11} md={10}>
-                                                <Paper className='layout-pager' square>
-                                                    <AsyncRouter />
-                                                </Paper>
-                                            </Grid>
-                                        </Grid>
-                                    </Container>
-                                </React.Fragment>
-                            )}
-                        />
-                    </Switch>
+                                        </Container>
+                                    </React.Fragment>
+                                )}
+                            />
+                        </Switch>
+                    </div>
+                    <footer>
+                        <Container fixed>
+                            <Grid container>
+                                <Grid item xs={12} sm={12} md={12}>
+                                    <div className='footer-content'>
+                                        Copyright © 2020 fylder |{' '}
+                                        <a
+                                            href='http://www.beian.miit.gov.cn'
+                                            rel='noopener noreferrer'
+                                            target='_blank'
+                                        >
+                                            桂ICP备16003294号-1
+                                        </a>
+                                    </div>
+                                </Grid>
+                            </Grid>
+                        </Container>
+                    </footer>
                 </div>
             </MuiThemeProvider>
         )

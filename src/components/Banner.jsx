@@ -55,7 +55,7 @@ class Banner extends React.Component {
                                     Ant Motion Demo.Ant Motion Demo
                                 </TweenOne>
                             </Element>
-                            <Element key='bbb' prefixCls='banner-user-elem' style={stylesLay}>
+                            {/* <Element key='bbb' prefixCls='banner-user-elem' style={stylesLay}>
                                 <BgElement
                                     key='bg'
                                     className='bg'
@@ -81,7 +81,7 @@ class Banner extends React.Component {
                                 >
                                     Ant Motion Demo.Ant Motion Demo
                                 </TweenOne>
-                            </Element>
+                            </Element> */}
                         </BannerAnim>
                     )
                 }}
