@@ -29,7 +29,7 @@
     "filepond-plugin-image-resize": "^2.0.4",
     "filepond-plugin-image-transform": "^3.4.3",
     "kind-of": "^6.0.3",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "mixin-deep": "^2.0.1",
     "prop-types": "^15.7.2",
     "qs": "^6.8.0",
